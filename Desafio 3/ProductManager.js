@@ -1,8 +1,11 @@
 const fs = require("fs");
-const { json } = require("stream/consumers");
+// import { promises as fs } from "fs";
 
-const dirName = "./productos";
-const fileName = dirName + "/productos.txt";
+// const { json } = require("stream/consumers");
+
+// const dirName = "./productos";
+// const fileName = dirName + "/productos.txt";
+const fileName = "productos.txt";
 
 class ProductManager {
     constructor(){
@@ -13,7 +16,7 @@ class ProductManager {
     static id = 0
 
     addProduct = async (title, description, price, thumbnail, code, stock) =>{
-        await fs.promises.mkdir(dirName, { recursive: true });
+        // await fs.promises.mkdir(dirName, { recursive: true });
         if (this.products.some(product => product.code === code)){
             console.log("Error al agregar producto, el code se repite")
         }else{
@@ -70,7 +73,7 @@ class ProductManager {
 
 
 
-const productos = new ProductManager
+// const productos = new ProductManager
 
 // EJECUCION DE FUNCIONES 
 
@@ -79,7 +82,10 @@ const productos = new ProductManager
         // productos.addProduct("iPhone", "iPhone 20", 2000, "imagenTelefono", "abc123", 10 )
         // productos.addProduct("Xiaomi", "Redmi 50", 1500, "imagenTelefono", "abc124", 10 )
         // productos.addProduct("Samsung", "Samsung J100", 3500, "imagenTelefono", "abc125", 10 )
-        // productos.addProduct("Blackberry", "BB8", 1500, "imagenTelefono", "abc124", 10 )
+        // productos.addProduct("Blackberry", "BB8", 1500, "imagenTelefono", "abc126", 10 )
+        // productos.addProduct("Nokia", "3310", 1500, "imagenTelefono", "abc127", 10 )
+        // productos.addProduct("Motorolla", "Razr", 1500, "imagenTelefono", "abc128", 10 )
+        // productos.addProduct("Sony Ericsson", "W595", 1500, "imagenTelefono", "abc129", 10 )
 
 // 2. CONSULTAR TODOS LOS PRODUCTOS DEL CATALOGO --->
         // productos.getProduct()
@@ -91,3 +97,4 @@ const productos = new ProductManager
         // productos.deleteProductById(2)
 
 
+module.exports = ProductManager
